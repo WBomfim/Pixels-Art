@@ -10,3 +10,15 @@ createColorInPalette('black');
 createColorInPalette('red');
 createColorInPalette('blue');
 createColorInPalette('green');
+
+function addPixelSquare() {
+  const pixelSquare = document.getElementById('pixel-board');
+  for (let index = 1; index <= 25; index += 1) {
+    const pixel = document.createElement('div');
+    pixel.className = 'pixel';
+    pixelSquare.appendChild(pixel);
+  }
+  
+}
+
+addPixelSquare();
