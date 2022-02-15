@@ -1,0 +1,9 @@
+#title {
+  font-size: 50px;
+}
+
+.color {
+  border: solid black 1px;
+  display: inline-block;
+  margin: 5px;
+}
