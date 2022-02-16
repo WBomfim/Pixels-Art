@@ -30,11 +30,12 @@ addPixelSquare();
 function selectedColor() {
   const colors = document.querySelectorAll('.color');
   const colorPalette = document.querySelector('#color-palette');
-  function changeClass() {
+  function changeClass(event) {
+    const eventSelect = event;
     for (let index = 0; index < colors.length; index += 1) {
       if (colors[index].className !== 'selected') {
         colors[index].className = 'color';
-        event.target.className = 'color selected';
+        eventSelect.target.className = 'color selected';
       }
     }
   }
@@ -45,9 +46,10 @@ selectedColor();
 
 function paintPixel() {
   const pixels = document.querySelector('#pixel-board');
-  function paint() {
+  function paint(event) {
+    const eventPaint = event;
     const colors = document.getElementsByClassName('selected');
-    event.target.style.backgroundColor = colors[0].style.backgroundColor;
+    eventPaint.target.style.backgroundColor = colors[0].style.backgroundColor;
   }
   pixels.addEventListener('click', paint);
 }
