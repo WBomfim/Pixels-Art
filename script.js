@@ -3,11 +3,6 @@ function createColorInPalette(color) {
   const colorExhibition = document.createElement('div');
   colorExhibition.className = 'color';
   colorExhibition.style.backgroundColor = color;
-  colorExhibition.style.border = 'solid black 1px';
-  colorExhibition.style.display = 'inline-block';
-  colorExhibition.style.width = '40px';
-  colorExhibition.style.height = '40px';
-  colorExhibition.style.marginLeft = '5px';
   colorPalette.appendChild(colorExhibition);
 }
 
@@ -34,17 +29,59 @@ function addPixelSquare() {
 addPixelSquare();
 
 function selectedColorBlack() {
-  const className = 'color selected';
-  const colorBlack = document.querySelectorAll('.color')[0];
-  colorBlack.className = className;
+  const colors = document.querySelectorAll('.color');
+  colors[0].className = 'color selected';
   function selectedColor() {
-    if (colorBlack.className !== className) {
-      colorBlack.className = className;
-    } else {
-      colorBlack.className = 'color';
+    for (let index = 0; index < colors.length; index += 1) {
+      if (colors[index].className !== 'selected') {
+        colors[index].className = 'color';
+        event.target.className = 'color selected';
+      }
     }
   }
-  colorBlack.addEventListener('click', selectedColor);
+  colors[0].addEventListener('click', selectedColor);
+}
+
+function selectedColorRed() {
+  const colors = document.querySelectorAll('.color');
+  function selectedColor() {
+    for (let index = 0; index < colors.length; index += 1) {
+      if (colors[index].className !== 'selected') {
+        colors[index].className = 'color';
+        event.target.className = 'color selected';
+      }
+    }
+  }
+  colors[1].addEventListener('click', selectedColor);
+}
+
+function selectedColorBlue() {
+  const colors = document.querySelectorAll('.color');
+  function selectedColor() {
+    for (let index = 0; index < colors.length; index += 1) {
+      if (colors[index].className !== 'selected') {
+        colors[index].className = 'color';
+        event.target.className = 'color selected';
+      }
+    }
+  }
+  colors[2].addEventListener('click', selectedColor);
+}
+
+function selectedColorGreen() {
+  const colors = document.querySelectorAll('.color');
+  function selectedColor() {
+    for (let index = 0; index < colors.length; index += 1) {
+      if (colors[index].className !== 'selected') {
+        colors[index].className = 'color';
+        event.target.className = 'color selected';
+      }
+    }
+  }
+  colors[3].addEventListener('click', selectedColor);
 }
 
 selectedColorBlack();
+selectedColorRed();
+selectedColorBlue();
+selectedColorGreen();
