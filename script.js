@@ -70,6 +70,7 @@ function selectedColorBlue() {
 
 function selectedColorGreen() {
   const colors = document.querySelectorAll('.color');
+  const colorPalette = document.querySelector('#color-palette')
   function selectedColor() {
     for (let index = 0; index < colors.length; index += 1) {
       if (colors[index].className !== 'selected') {
@@ -78,10 +79,18 @@ function selectedColorGreen() {
       }
     }
   }
-  colors[3].addEventListener('click', selectedColor);
+  colorPalette.addEventListener('click', selectedColor);
 }
 
 selectedColorBlack();
 selectedColorRed();
 selectedColorBlue();
 selectedColorGreen();
+
+const pixels = document.querySelector('#pixel-board');
+function paintPixel() {
+  const colors = document.getElementsByClassName('selected');
+  event.target.style.backgroundColor = colors[0].style.backgroundColor;
+}
+
+pixels.addEventListener('click', paintPixel);
