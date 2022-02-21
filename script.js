@@ -34,13 +34,23 @@ function addPixelSquare(size) {
 const inputBoard = document.querySelector('#board-size');
 const buttonVQV = document.querySelector('#generate-board');
 
+function boardSizeLimit(value) {
+  if (value >= 5 && value <= 50) {
+    addPixelSquare(value);
+  } else if (value < 5) {
+    addPixelSquare(5);
+  } else if (value > 50) {
+    addPixelSquare(50);
+  }
+}
+
 function boardSize() {
   const inputValue = inputBoard.value;
   document.querySelector('#pixel-board').innerHTML = '';
-  if (inputValue > 5 && inputValue < 50) {
-    addPixelSquare(inputValue);
-  } else if (inputValue === '') {
+  if (inputValue === '') {
     alert('Board inválido!');
+  } else {
+    boardSizeLimit(inputValue);
   }
 }
 
