@@ -84,8 +84,10 @@ function colorSelected(event) {
 
 function paintPixel(event) {
   const eventPaint = event;
-  const colorsClass = document.querySelector('.selected');
-  eventPaint.target.style.backgroundColor = colorsClass.style.backgroundColor;
+  if (eventPaint.target.className === 'pixel') {
+    const colorsClass = document.querySelector('.selected');
+    eventPaint.target.style.backgroundColor = colorsClass.style.backgroundColor;
+  }
 }
 
 const buttonClear = document.getElementById('clear-board');
