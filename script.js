@@ -15,10 +15,16 @@ function createColorInPalette(color) {
   colorPalette.appendChild(colorExhibition);
 }
 
-createColorInPalette('black');
-createColorInPalette(generateNumbersColorsRGB());
-createColorInPalette(generateNumbersColorsRGB());
-createColorInPalette(generateNumbersColorsRGB());
+const buttonCreateColors = document.getElementById('create-color');
+
+function insertColor() {
+  const colors = document.querySelectorAll('.color');
+  const title = document.getElementById('title');
+  if (colors.length <= 35) {
+    createColorInPalette(generateNumbersColorsRGB());
+    title.style.color = generateNumbersColorsRGB();
+  }
+}
 
 function selectBlackColorFirst() {
   const colorBlack = document.querySelectorAll('.color')[0];
@@ -59,14 +65,14 @@ function boardSize() {
   document.querySelector('#pixel-board').innerHTML = '';
   if (inputValue === '') {
     alert('Board inválido!');
+    addPixelSquare(5);
   } else {
     boardSizeLimit(inputValue);
   }
 }
 
-const colors = document.querySelectorAll('.color');
-
 function changeColors(event) {
+  const colors = document.querySelectorAll('.color');
   const eventSelect = event;
   for (let index = 0; index < colors.length; index += 1) {
     if (colors[index].className !== 'selected') {
@@ -100,8 +106,13 @@ function clearAllPixels() {
 }
 
 window.onload = function loadingEvents() {
+  createColorInPalette('black');
+  createColorInPalette(generateNumbersColorsRGB());
+  createColorInPalette(generateNumbersColorsRGB());
+  createColorInPalette(generateNumbersColorsRGB());
   selectBlackColorFirst();
   addPixelSquare(5);
+  buttonCreateColors.addEventListener('click', insertColor);
   buttonVQV.addEventListener('click', boardSize);
   colorPalette.addEventListener('click', colorSelected);
   pixelBoard.addEventListener('click', paintPixel);
