@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 #title {
   font-size: 50px;
 }
@@ -16,8 +22,6 @@
 }
 
 #pixel-board {
-  width: 211px;
-  height: 211px;
   line-height: 0;
   text-align: center;
 }
@@ -30,10 +34,9 @@
   height: 40px;
 }
 
-#button-clear {
+#input-buttons {
   height: 30px;
-  width: 220px;
-  text-align: center;
+  width: 350px;
 }
 
 #clear-board {
