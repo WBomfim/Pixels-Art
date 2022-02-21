@@ -1,4 +1,13 @@
 const colorPalette = document.querySelector('#color-palette');
+
+function generateNumbersColorsRGB() {
+  const num1 = (Math.floor(Math.random() * 256) + 1).toString();
+  const num2 = (Math.floor(Math.random() * 256) + 1).toString();
+  const num3 = (Math.floor(Math.random() * 256) + 1).toString();
+  const colorRGB = ['r', 'g', 'b', '(', num1, ',', num2, ',', num3, ')'];
+  return colorRGB.join('');
+}
+
 function createColorInPalette(color) {
   const colorExhibition = document.createElement('div');
   colorExhibition.className = 'color';
@@ -7,21 +16,22 @@ function createColorInPalette(color) {
 }
 
 createColorInPalette('black');
-createColorInPalette('red');
-createColorInPalette('blue');
-createColorInPalette('green');
+createColorInPalette(generateNumbersColorsRGB());
+createColorInPalette(generateNumbersColorsRGB());
+createColorInPalette(generateNumbersColorsRGB());
 
 function selectBlackColorFirst() {
   const colorBlack = document.querySelectorAll('.color')[0];
   colorBlack.className = 'color selected';
 }
 
+const pixelBoard = document.getElementById('pixel-board');
+
 function addPixelSquare(size) {
-  const pixelSquare = document.getElementById('pixel-board');
   for (let index1 = 0; index1 < size; index1 += 1) {
     const lineBoard = document.createElement('div');
     lineBoard.className = 'lineBoard';
-    pixelSquare.appendChild(lineBoard);
+    pixelBoard.appendChild(lineBoard);
     for (let index2 = 0; index2 < size; index2 += 1) {
       const lineBoardaa = document.querySelectorAll('.lineBoard')[index1];
       const pixel = document.createElement('div');
@@ -71,8 +81,6 @@ function colorSelected(event) {
     changeColors(event);
   }
 }
-
-const pixelBoard = document.querySelector('#pixel-board');
 
 function paintPixel(event) {
   const eventPaint = event;
