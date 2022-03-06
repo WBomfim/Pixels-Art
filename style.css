@@ -45,7 +45,7 @@ body {
 }
 
 #generate-board {
-  width: 100px;
+  width: 170px;
 }
 
 #create-color {
@@ -80,12 +80,19 @@ body {
   display: inline-block;
   background-color: white;
   border: solid black 1px;
-  width: 40px;
-  height: 40px;
+  width: 39px;
+  height: 39px;
 }
 
 #input-buttons {
   height: 60px;
   width: 90%;
   margin: auto;
+}
+
+@media screen and (max-width: 1100px) {
+  .pixel {
+    width: 19px;
+    height: 19px;
+  }  
 }

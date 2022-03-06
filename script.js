@@ -107,9 +107,12 @@ function clearAllPixels() {
 
 window.onload = function loadingEvents() {
   createColorInPalette('black');
-  createColorInPalette(generateNumbersColorsRGB());
-  createColorInPalette(generateNumbersColorsRGB());
-  createColorInPalette(generateNumbersColorsRGB());
+  createColorInPalette('red');
+  createColorInPalette('yellow');
+  createColorInPalette('blue');
+  createColorInPalette('green');
+  createColorInPalette('orange');
+  createColorInPalette('purple');
   selectBlackColorFirst();
   addPixelSquare(5);
   buttonCreateColors.addEventListener('click', insertColor);
