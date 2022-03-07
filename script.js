@@ -107,6 +107,7 @@ function clearAllPixels() {
 
 window.onload = function loadingEvents() {
   createColorInPalette('black');
+  createColorInPalette('white');
   createColorInPalette('red');
   createColorInPalette('yellow');
   createColorInPalette('blue');
